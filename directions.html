@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Directions</title>
+    <link rel='icon' href='pin-map.svg' type='image/x-icon' sizes="16x16">
+    <link rel="stylesheet" href="style.css?rev=1">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!--BOOTSTRAP JS FOR THE NAVBAR-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="directions.js?rev=1"></script>
+
+</head>
+
+<body id="directionsBody">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand text-decoration-underline" href="index.html">schroe51</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html">home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="directions.html">directions</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!--FORM HTML STUFF-->
+      <div class="container" id="directionsFormContainer">
+        <form>
+            <div class="form-group row">
+              <label for="startingLocation" class="col-sm-2 col-form-label">Starting Location</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="startingLocation" placeholder="524 E High St, Oxford OH">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="destination" class="col-sm-2 col-form-label">Destination</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="destination" placeholder="Starbucks on High Street in Oxford Ohio">
+              </div>
+            </div>
+            <fieldset class="form-group">
+              <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Route Type</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input class="form-check-input btn-outline-warning" type="radio" name="gridRadios" id="fastest" value="fastest" checked>
+                    <label class="form-check-label" for="fastest">
+                      Fastest
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input btn-outline-warning" type="radio" name="gridRadios" id="shortest" value="shortest">
+                    <label class="form-check-label" for="shortest">
+                      Shortest
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input btn-outline-warning" type="radio" name="gridRadios" id="eco" value="eco">
+                    <label class="form-check-label" for="eco">
+                      Eco-friendly
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input btn-outline-warning" type="radio" name="gridRadios" id="thrilling" value="thrilling">
+                    <label class="form-check-label" for="thrilling">
+                      Thrilling
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-group row">
+                <label for="modeOfTransportation" class="col-sm-2 col-form-label">Mode Of Transportation</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="modeOfTransportation">
+                    <option value="car" selected>Car</option>
+                    <option value="truck">Truck</option>
+                    <option value="taxi">Taxi</option>
+                    <option value="bus">Bus</option>
+                    <option value="van">Van</option>
+                    <option value="motorcycle">Motorcycle</option>
+                    <option value="bicycle">Bicycle</option>
+                    <option value="pedestrian">Pedestrian</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="incline" class="col-sm-2 col-form-label">Incline</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="incline">
+                    <option>Low</option>
+                    <option selected>Normal</option>
+                    <option>High</option>
+                  </select>
+                </div>
+              </div>
+            <div class="form-group row">
+              <div class="col-sm-12 text-center">
+                  <br>
+                <button type="button" class="btn btn-primary btn-warning" id="mapButton">Map Me!</button>
+              </div>
+            </div>
+          </form>
+
+      </div>
+      <!--END OF FORM FIELDS-->
+
+      <div class="container text-center" id="mappingDiv">
+
+          <div class="row text-decoration-underline">
+            <div class="col">
+                <h3>Total Distance:</h3>
+            </div>
+            <div class="col">
+                <h3>Total Time (HH:MM:SS):</h3>
+            </div>
+            <div class="col">
+                <h3>Traffic Delays:</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+                <h5 id="distanceP"></h5>
+            </div>
+            <div class="col">
+                <h5 id="timeP"></h5>
+            </div>
+            <div class="col">
+                <h5 id="trafficP"></h5>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="container text-center" id="legDiv">
+          
+      </div>
+      
+</body>
+
+</html>

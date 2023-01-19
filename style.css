@@ -1,0 +1,192 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.jumbotron{
+    padding: 100px;
+}
+
+.descriptionRows{
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 50px;
+}
+
+.stepSendsJSON{
+    color: #ffc107;
+}
+
+.stepSendsJSON:hover{
+    color: rgb(78, 75, 96);
+}
+
+#diagramImage{
+    padding-bottom: 50px;
+}
+
+ol li{
+    padding: 10px;
+}
+
+.systemStepsList{
+    list-style-position: inside;
+}
+
+#directionsLink{
+    color: #ffc107;
+}
+#directionsLink:hover{
+    color: rgb(78, 75, 96);
+}
+
+#startingLocation{
+    color:white;
+    background-color: rgb(78, 75, 96);
+}
+
+#startingLocation::placeholder{
+    color:white;
+    opacity: .7;
+    background-color: rgb(78, 75, 96);
+}
+
+#destination{
+    color:white;
+    background-color: rgb(78, 75, 96);
+}
+
+#destination::placeholder{
+    color:white;
+    opacity: .7;
+    background-color: rgb(78, 75, 96);
+}
+
+#modeOfTransportation{
+    color:white;
+    background-color: rgb(78, 75, 96);
+}
+
+#incline{
+    color: white;
+    background-color: rgb(78, 75, 96);
+}
+
+#directionsFormContainer{
+    padding: 50px;
+}
+
+#historyFormContainer{
+    padding: 50px;
+}
+
+#mappingDiv {
+    padding-bottom: 100px;
+}
+
+.directionImagesRows {
+    padding-bottom: 100px;
+    padding-top: 100px;
+    background-image: linear-gradient(#ffc107, white);
+}
+
+/* THIS IS TO MAKE THE BUTTONS YELLOW WHEN PRESSED TO MATCH THE PAGE */
+input[type='radio']:checked:after {
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    top: -3px;
+    left: -2px;
+    position: relative;
+    background-color: #ffc107;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: rgb(78, 75, 96);
+    }
+    #homeConatiner {
+        background-color: rgb(78, 75, 96);
+        color: white;
+    }
+    #diagramImage {
+        content: url("DiagramDarkMode.png");
+    }
+    .stepSendsJSON:hover{
+        color: white;
+    }
+    #directionsLink:hover{
+        color: white;
+    }
+    #directionsBody{
+        background-color: rgb(78, 75, 96);
+        color: white;
+    }
+    #directionsFormContainer {
+        background-color: rgb(78, 75, 96);
+        color: white;
+    }
+
+    #startingLocation{
+        color:black;
+        background-color: #ffc107;
+    }
+    
+    #startingLocation::placeholder{
+        color:black;
+        opacity: .7;
+        background-color: #ffc107;
+    }
+    
+    #destination{
+        color:black;
+        background-color: #ffc107;
+    }
+    
+    #destination::placeholder{
+        color:black;
+        opacity: .7;
+        background-color: #ffc107;
+    }
+    
+    #modeOfTransportation{
+        color:black;
+        background-color: #ffc107;
+    }
+    
+    #incline{
+        color:black;
+        background-color: #ffc107;
+    }
+    
+
+    #mappingDiv {
+        background-color: rgb(78, 75, 96);
+        color: white;
+    }
+
+    #legDiv {
+        background-color: rgb(78, 75, 96);
+        color: white;
+    }
+
+    #historyBody{
+        background-color: rgb(78, 75, 96);
+        color: white;
+    }
+    #historyTableContainer{
+        background-color: white;
+        color: black;
+    }
+    .directionImagesRows {
+        padding-bottom: 100px;
+        padding-top: 100px;
+        background-image: linear-gradient(#ffc107, rgb(78, 75, 96));
+    }
+}
+
+    
